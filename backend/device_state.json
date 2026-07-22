@@ -1,0 +1,12 @@
+{
+  "1": {
+    "extra_commands": [
+      "service password-encryption"
+    ]
+  },
+  "2": {
+    "extra_commands": [
+      "service password-encryption"
+    ]
+  }
+}

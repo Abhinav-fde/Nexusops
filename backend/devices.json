@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Router0",
+        "device_type": "cisco_ios",
+        "host": "192.168.1.1",
+        "username": "nexusadmin",
+        "password": "Nexus123",
+        "status": "online"
+    },
+    {
+        "id": 2,
+        "name": "Router1",
+        "device_type": "cisco_ios",
+        "host": "192.168.1.2",
+        "username": "nexusadmin",
+        "password": "Nexus123",
+        "status": "online"
+    }
+]

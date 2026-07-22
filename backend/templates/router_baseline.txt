@@ -1,0 +1,5 @@
+ip domain-name nexusops.local
+ip ssh version 2
+interface GigabitEthernet0/0
+no shutdown
+service password-encryptiongit status
