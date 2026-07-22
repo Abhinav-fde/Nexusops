@@ -32,7 +32,7 @@ As a network grows, manually verifying configurations, catching drift, and keepi
 
 ### Network Operations Dashboard
 
-![NexusOps Dashboard](screenshots/nexusops1(2).png)
+![NexusOps Dashboard](screenshots/nexus1.png)
 
 ### Device Fleet & Automation
 
