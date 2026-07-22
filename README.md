@@ -28,6 +28,20 @@ As a network grows, manually verifying configurations, catching drift, and keepi
 > **Current status:** Simulation-based automation environment, fully functional end-to-end.
 > **Next milestone:** SSH integration with virtual Cisco IOS devices for real configuration retrieval and deployment.
 
+## 📸 Screenshots
+
+### Network Operations Dashboard
+
+![NexusOps Dashboard](screenshots/nexusops1.png)
+
+### Device Fleet & Automation
+
+![NexusOps Device Fleet](screenshots/nexusops2.png)
+
+### Compliance & Backup Management
+
+![NexusOps Compliance](screenshots/nexusops3.png)
+
 ```text
 Device Inventory
        │
