@@ -1599,3 +1599,25 @@ button {
     line-height: 1.6;
   }
 }
+
+/* Mobile topology — connect lines directly to routers */
+@media screen and (max-width: 768px) {
+
+  .topology-links {
+    height: 145px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .topology-links .drop-left,
+  .topology-links .drop-right {
+    height: 110px !important;
+  }
+
+  .topology-row {
+    margin-top: 0 !important;
+  }
+
+  .topology-row .router-node {
+    margin-top: 0 !important;
+  }
+}
