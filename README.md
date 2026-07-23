@@ -19,11 +19,11 @@
 
 <p align="center">
   <a href="https://nexusops-one.vercel.app">
-    <strong>🚀 Live Demo</strong>
+    <img src="https://img.shields.io/badge/🚀_LIVE_DEMO-2ea44f?style=for-the-badge" alt="Live Demo" />
   </a>
-  &nbsp;&nbsp;•&nbsp;&nbsp;
+  &nbsp;
   <a href="https://nexusops-api.onrender.com/docs">
-    <strong>📚 API Documentation</strong>
+    <img src="https://img.shields.io/badge/📚_API_DOCUMENTATION-0969da?style=for-the-badge" alt="API Documentation" />
   </a>
 </p>
 
