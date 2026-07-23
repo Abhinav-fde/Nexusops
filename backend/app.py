@@ -1,12 +1,12 @@
 import json
 from pathlib import Path
 from fastapi.middleware.cors import CORSMiddleware
-from backend.audit import audit_device
+from audit import audit_device
 from pydantic import BaseModel
-from backend.deploy import deploy_config
+from deploy import deploy_config
 from fastapi import FastAPI, HTTPException
-from backend.backup import backup_device
-from backend.activity import get_activities, log_activity
+from backup import backup_device
+from activity import get_activities, log_activity
 
 BASE_DIR = Path(__file__).resolve().parent
 DEVICES_FILE = BASE_DIR / "devices.json"
