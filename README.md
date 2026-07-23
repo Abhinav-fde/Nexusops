@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛰️ NexusOps
+# NexusOps
 
 ### Network Automation & Configuration Compliance Platform
 
@@ -13,32 +13,34 @@
 [![Status](https://img.shields.io/badge/Status-Simulation%20Mode-yellow?style=flat-square)]()
 [![License](https://img.shields.io/badge/License-Educational%20%2F%20Portfolio-lightgrey?style=flat-square)]()
 
-[Overview](#-overview) • [Features](#-key-features) • [Architecture](#-architecture) • [API](#-rest-api) • [Getting Started](#-running-nexusops-locally) • [Roadmap](#-roadmap)
+[Overview](#overview) • [Features](#key-features) • [Architecture](#architecture) • [API](#rest-api) • [Getting Started](#running-nexusops-locally) • [Roadmap](#roadmap)
 
 </div>
 
 <p align="center">
   <a href="https://nexusops-one.vercel.app">
-    <img src="https://img.shields.io/badge/🚀_LIVE_DEMO-2ea44f?style=for-the-badge" alt="Live Demo" />
+    <img src="https://img.shields.io/badge/LIVE_DEMO-2ea44f?style=for-the-badge" alt="Live Demo" />
   </a>
   &nbsp;
   <a href="https://nexusops-api.onrender.com/docs">
-    <img src="https://img.shields.io/badge/📚_API_DOCUMENTATION-0969da?style=for-the-badge" alt="API Documentation" />
+    <img src="https://img.shields.io/badge/API_DOCUMENTATION-0969da?style=for-the-badge" alt="API Documentation" />
   </a>
 </p>
 
 ---
 
-## 📌 Overview
+## Overview
 
-As a network grows, manually verifying configurations, catching drift, and keeping backups current stops scaling. Engineers end up doing detective work — diffing configs by eye, hoping nothing slipped through.
+As a network grows, manually verifying configurations, catching drift, and keeping backups current stops scaling. Engineers end up doing detective work — diffing configurations by eye and manually identifying changes.
 
-**NexusOps turns that detective work into a pipeline.** It centralizes device inventory, configuration auditing, baseline compliance, backups, and automated remediation behind a single operations dashboard — so configuration drift is *detected and fixed*, not discovered during an outage.
+**NexusOps turns that process into an automation pipeline.** It centralizes device inventory, configuration auditing, baseline compliance, backups, and automated remediation behind a single operations dashboard — so configuration drift can be detected and corrected systematically.
 
-> **Current status:** Simulation-based automation environment, fully functional end-to-end.
+> **Current status:** Simulation-based automation environment, fully functional end-to-end.  
 > **Next milestone:** SSH integration with virtual Cisco IOS devices for real configuration retrieval and deployment.
 
-## 📸 Screenshots
+---
+
+## Screenshots
 
 ### Network Operations Dashboard
 
@@ -51,6 +53,10 @@ As a network grows, manually verifying configurations, catching drift, and keepi
 ### Compliance & Backup Management
 
 ![NexusOps Compliance](screenshots/nexusops3.png)
+
+---
+
+## Automation Workflow
 
 ```text
 Device Inventory
@@ -77,19 +83,19 @@ Baseline Comparison
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-| Feature | What it does |
+| Feature | Description |
 |---|---|
-| 🖥️ **Operations Dashboard** | Real-time visibility into device inventory, availability, topology, compliance, and recent activity |
-| ✅ **Compliance Engine** | Compares live device configuration against an approved baseline and calculates a compliance score |
-| 📉 **Drift Detection** | Flags any configuration change that violates the approved baseline the moment it's audited |
-| 🔧 **Automated Remediation** | Identifies missing commands and deploys the fix — no manual config-pushing |
-| 💾 **Configuration Backups** | Timestamped, per-device backups, individually or in bulk |
-| 📜 **Activity Tracking** | Every audit, deployment, and backup is logged and surfaced on the dashboard |
-| 🔍 **Device Search** | Instantly filter devices by name, IP address, or platform |
+| **Operations Dashboard** | Visibility into device inventory, availability, topology, compliance, and recent activity |
+| **Compliance Engine** | Compares device configuration against an approved baseline and calculates a compliance score |
+| **Drift Detection** | Detects configuration changes that violate the approved baseline |
+| **Automated Remediation** | Identifies missing commands and deploys the required configuration |
+| **Configuration Backups** | Generates timestamped per-device backups individually or in bulk |
+| **Activity Tracking** | Records audits, deployments, and backup operations |
+| **Device Search** | Filters devices by name, IP address, or platform |
 
-### Compliance Engine, in detail
+### Compliance Engine
 
 ```text
 Approved Baseline
@@ -107,34 +113,44 @@ Configuration Comparison
               Compliance Score
 ```
 
-### Drift Detection — example
+### Drift Detection Example
 
 ```text
 Router0
-  Before drift  → Compliance: 100%
-  Command removed from running-config
-  After audit   → Compliance: 80%  |  Status: ACTION REQUIRED
+
+Before drift  → Compliance: 100%
+Command removed from running-config
+After audit   → Compliance: 80% | Status: ACTION REQUIRED
 ```
 
-### Automated Remediation — example
+### Automated Remediation Example
 
 ```text
-Audit → Detect Missing Configuration → Fix Configuration
-      → Deploy Required Commands → Re-Audit → 100% Compliance
+Audit
+  ↓
+Detect Missing Configuration
+  ↓
+Fix Configuration
+  ↓
+Deploy Required Commands
+  ↓
+Re-Audit
+  ↓
+100% Compliance
 ```
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```text
 ┌──────────────────────────────────────────────┐
-│                   NexusOps                    │
+│                   NexusOps                   │
 └──────────────────────────────────────────────┘
 
                   React + Vite
                        │
-                       │  REST API
+                       │ REST API
                        ▼
                 FastAPI Backend
                        │
@@ -160,17 +176,18 @@ Audit → Detect Missing Configuration → Fix Configuration
                           Network Devices
 ```
 
-The network-operations layer is deliberately decoupled from the API layer. That's what lets the current **Simulation Mode** be swapped for real SSH/Netmiko device communication in Phase 2 without touching the audit, backup, or deploy engines.
+The network-operations layer is deliberately decoupled from the API layer. This allows the current **Simulation Mode** to be replaced with real SSH/Netmiko device communication without redesigning the audit, backup, or deployment engines.
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 <table>
 <tr>
 <td valign="top" width="33%">
 
 **Frontend**
+
 - React
 - Vite
 - JavaScript
@@ -181,6 +198,7 @@ The network-operations layer is deliberately decoupled from the API layer. That'
 <td valign="top" width="33%">
 
 **Backend**
+
 - Python
 - FastAPI
 - Pydantic
@@ -190,6 +208,7 @@ The network-operations layer is deliberately decoupled from the API layer. That'
 <td valign="top" width="33%">
 
 **Automation — Current**
+
 - Configuration baseline validation
 - Simulated device state
 - Compliance calculation
@@ -197,7 +216,9 @@ The network-operations layer is deliberately decoupled from the API layer. That'
 - Backup workflow
 
 **Automation — Planned**
-- Netmiko + SSH
+
+- Netmiko
+- SSH
 - Cisco IOS
 - Real `show running-config`
 - Real configuration deployment
@@ -208,28 +229,28 @@ The network-operations layer is deliberately decoupled from the API layer. That'
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 NexusOps/
 │
 ├── backend/
-│   ├── app.py                  # FastAPI entrypoint
-│   ├── audit.py                # Compliance auditing logic
-│   ├── backup.py                # Configuration backup workflow
-│   ├── deploy.py                 # Configuration deployment engine
-│   ├── activity.py                # Activity logging
-│   ├── config.py                   # App configuration
-│   ├── models.py                    # Pydantic models
-│   ├── ssh.py                         # Future SSH/Netmiko integration
-│   ├── devices.json                    # Device inventory
-│   ├── device_state.json                # Simulated device state
+│   ├── app.py
+│   ├── audit.py
+│   ├── backup.py
+│   ├── deploy.py
+│   ├── activity.py
+│   ├── config.py
+│   ├── models.py
+│   ├── ssh.py
+│   ├── devices.json
+│   ├── device_state.json
 │   ├── requirements.txt
 │   │
 │   ├── templates/
-│   │   └── router_baseline.txt          # Approved configuration baseline
+│   │   └── router_baseline.txt
 │   │
-│   └── backups/                           # Generated backup files
+│   └── backups/
 │
 ├── frontend/
 │   ├── src/
@@ -242,13 +263,18 @@ NexusOps/
 │   ├── package.json
 │   └── vite.config.js
 │
+├── screenshots/
+│   ├── nexus1.png
+│   ├── nexusops2.png
+│   └── nexusops3.png
+│
 ├── .gitignore
 └── README.md
 ```
 
 ---
 
-## 🔌 REST API
+## REST API
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -262,30 +288,28 @@ NexusOps/
 | `POST` | `/backup-all` | Back up all devices |
 | `GET` | `/activities` | Retrieve automation activity log |
 
-Interactive, auto-generated API docs are available at:
-
-```text
-/docs
-```
+Interactive API documentation is available through the deployed FastAPI Swagger interface.
 
 ---
 
-## 🚀 Running NexusOps Locally
+## Running NexusOps Locally
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone <YOUR-GITHUB-REPOSITORY-URL>
 cd NexusOps
 ```
 
-### 2. Backend setup
+### 2. Backend Setup
+
+Create a Python virtual environment:
 
 ```bash
 python -m venv venv
 ```
 
-Activate the environment (Windows):
+Activate it on Windows:
 
 ```bash
 venv\Scripts\activate
@@ -306,9 +330,9 @@ uvicorn backend.app:app --reload
 | Service | URL |
 |---|---|
 | Backend | `http://127.0.0.1:8000` |
-| API docs | `http://127.0.0.1:8000/docs` |
+| API Documentation | `http://127.0.0.1:8000/docs` |
 
-### 3. Frontend setup
+### 3. Frontend Setup
 
 ```bash
 cd frontend
@@ -321,7 +345,7 @@ Create `frontend/.env`:
 VITE_API_URL=http://127.0.0.1:8000
 ```
 
-Start the dev server:
+Start the development server:
 
 ```bash
 npm run dev
@@ -333,19 +357,9 @@ npm run dev
 
 ---
 
-## 🖼️ Screenshots
+## Example Compliance Workflow
 
-> Dashboard screenshots will be added after the final UI/deployment build.
-
-<!--
-![NexusOps Dashboard](docs/images/dashboard.png)
--->
-
----
-
-## 🔁 Example Compliance Workflow
-
-A device's baseline requires:
+A device baseline requires:
 
 ```text
 ip domain-name nexusops.local
@@ -353,42 +367,53 @@ ip ssh version 2
 service password-encryption
 ```
 
-If a required command is missing, NexusOps flags the drift:
+If a required command is missing, NexusOps identifies the configuration drift:
 
 ```text
 Router0
+
 Compliance: 80%
 Missing configuration detected
 ```
 
-The remediation workflow restores compliance automatically:
+The remediation workflow can then restore compliance:
 
 ```text
-80% Compliance → Configuration Fix → Missing Command Applied
-              → Re-Audit → 100% Compliance
+80% Compliance
+      ↓
+Configuration Fix
+      ↓
+Missing Command Applied
+      ↓
+Re-Audit
+      ↓
+100% Compliance
 ```
 
 ---
 
-## 🧪 Simulation Mode
+## Simulation Mode
 
-The current build runs on a simulated device state so the full automation architecture can be developed and demonstrated without physical network hardware. Simulation Mode currently supports:
+The current build uses simulated device state so the complete automation architecture can be developed and demonstrated without requiring physical network hardware.
+
+Simulation Mode currently supports:
 
 - Device inventory
 - Configuration auditing
-- Configuration drift
+- Configuration drift detection
 - Compliance scoring
 - Configuration deployment state
 - Configuration backups
 - Activity tracking
 
-This lets the API and automation workflows be validated independently of real infrastructure — before the SSH/Netmiko layer goes live in Phase 2.
+This allows the API and automation workflows to be validated independently before the SSH/Netmiko integration is introduced.
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
-### Phase 1 — Platform Foundation ✅
+### Phase 1 — Platform Foundation
+
 - [x] React operations dashboard
 - [x] FastAPI backend
 - [x] Device inventory
@@ -400,20 +425,25 @@ This lets the API and automation workflows be validated independently of real in
 - [x] Configuration backups
 - [x] Activity tracking
 - [x] Device search
+- [x] Responsive mobile support
+- [x] Frontend deployment
+- [x] Backend API deployment
 
-### Phase 2 — Real Network Integration 🚧
+### Phase 2 — Real Network Integration
+
 - [ ] Virtual Cisco IOS lab
 - [ ] SSH device connectivity
 - [ ] Netmiko integration
 - [ ] Retrieve real `show running-config`
 - [ ] Real-time device availability
-- [ ] Deploy configuration through SSH
+- [ ] Deploy configurations through SSH
 - [ ] Retrieve real configuration backups
 - [ ] Post-remediation verification
 
-### Phase 3 — Advanced Automation 🔮
+### Phase 3 — Advanced Automation
+
 - [ ] Configuration versioning
-- [ ] Backup comparison / diff
+- [ ] Backup comparison and diff
 - [ ] Role-based access control
 - [ ] Scheduled compliance audits
 - [ ] Multi-vendor device support
@@ -421,44 +451,58 @@ This lets the API and automation workflows be validated independently of real in
 
 ---
 
-## 🎯 Engineering Goals
+## Engineering Goals
 
-NexusOps exists to explore the intersection of:
+NexusOps explores the intersection of:
 
 **Network Engineering × Backend Engineering × Automation × DevOps**
 
-Rather than treating network management as a set of manual, one-off commands, this project models network operations as **programmable workflows** — exposed through a REST API and surfaced through a centralized dashboard.
+Rather than treating network management as a collection of manual commands, NexusOps models network operations as programmable workflows exposed through a REST API and managed through a centralized dashboard.
+
+The project focuses on separating the user interface, API, automation engines, and device communication layer so that the underlying network integration can evolve independently.
 
 ---
 
-## 🔒 Security
+## Security
 
-- Sensitive environment variables are excluded from version control
-- The repository does not intentionally store production device credentials
-- Real-device integration (Phase 2) will use environment-based credential management rather than hardcoded authentication
+- Environment variables are excluded from version control.
+- Production device credentials are not stored in the repository.
+- Real-device integration will use environment-based credential management rather than hardcoded authentication.
+- Device communication will be handled through secure SSH-based automation.
 
 ---
 
-## 🔭 Future Vision
+## Future Vision
 
-The long-term goal is to evolve NexusOps from a simulation-backed platform into a device-integrated network operations system capable of running the full loop —
+The long-term goal is to evolve NexusOps from a simulation-backed platform into a device-integrated network operations system capable of executing the complete configuration lifecycle:
 
 ```text
-Observe → Audit → Detect Drift → Remediate → Verify → Backup
+Observe
+   ↓
+Audit
+   ↓
+Detect Drift
+   ↓
+Remediate
+   ↓
+Verify
+   ↓
+Backup
 ```
 
-— across multiple real network devices, through secure automation protocols.
+The target architecture is designed to eventually support multiple network devices and secure network automation protocols.
 
 ---
 
-## 👤 Author
+## Author
 
-**Abhinav**
+**Abhinav**  
 B.Tech Computer Science & Engineering
-Interested in AI, Backend Engineering, Network Automation, and Infrastructure Software.
+
+Areas of interest: **AI, Backend Engineering, Network Automation, and Infrastructure Software**
 
 ---
 
-## 📄 License
+## License
 
 This project is currently intended for educational and portfolio purposes.
