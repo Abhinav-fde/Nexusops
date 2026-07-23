@@ -17,6 +17,16 @@
 
 </div>
 
+<p align="center">
+  <a href="https://nexusops-one.vercel.app">
+    <strong>🚀 Live Demo</strong>
+  </a>
+  &nbsp;&nbsp;•&nbsp;&nbsp;
+  <a href="https://nexusops-api.onrender.com/docs">
+    <strong>📚 API Documentation</strong>
+  </a>
+</p>
+
 ---
 
 ## 📌 Overview
