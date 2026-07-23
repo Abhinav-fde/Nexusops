@@ -1350,97 +1350,213 @@ button {
     0 0 18px rgba(45, 212, 191, 0.35);
 }
 
-/* ========================================
-   MOBILE RESPONSIVE LAYOUT
-   ======================================== */
+/* =========================================
+   FINAL MOBILE TOPOLOGY FIX
+   ========================================= */
 
-@media (max-width: 768px) {
-
-  /* Dashboard content */
-  .main-content {
-    width: 100%;
-    min-width: 0;
-  }
-
-  /* Dashboard cards */
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  /* Panels */
-  .panel {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  /* Panel header */
-  .panel-header {
-    align-items: flex-start;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  /* ==========================
-     NETWORK TOPOLOGY
-     ========================== */
+@media screen and (max-width: 768px) {
 
   .topology {
-    padding: 28px 16px;
-    min-height: auto;
-    overflow: visible;
+    position: relative !important;
+    width: 100% !important;
+    min-height: 430px !important;
+    padding: 35px 20px 30px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
+
+  /* ---------- CORE SWITCH ---------- */
 
   .topology-node.core {
-    margin: 0 auto;
+    position: relative !important;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    transform: none !important;
+
+    margin: 0 auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    z-index: 5 !important;
   }
+
+
+  /* ---------- CONNECTION LINES ---------- */
 
   .topology-links {
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
+    position: relative !important;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+
+    transform: none !important;
+
+    width: 70% !important;
+    max-width: 280px !important;
+    height: 90px !important;
+
+    margin: 0 auto !important;
+
+    flex-shrink: 0 !important;
   }
+
+
+  .topology-links .trunk {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 50% !important;
+
+    width: 1px !important;
+    height: 45px !important;
+
+    transform: translateX(-50%) !important;
+  }
+
+
+  .topology-links .branch {
+    position: absolute !important;
+
+    top: 44px !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 1px !important;
+  }
+
+
+  .topology-links .drop-left {
+    position: absolute !important;
+
+    top: 44px !important;
+    left: 0 !important;
+    right: auto !important;
+
+    width: 1px !important;
+    height: 46px !important;
+  }
+
+
+  .topology-links .drop-right {
+    position: absolute !important;
+
+    top: 44px !important;
+    right: 0 !important;
+    left: auto !important;
+
+    width: 1px !important;
+    height: 46px !important;
+  }
+
+
+  /* ---------- ROUTERS ---------- */
 
   .topology-row {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-    justify-items: center;
+    position: relative !important;
+
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+
+    transform: none !important;
+
+    width: 70% !important;
+    max-width: 280px !important;
+
+    margin: 0 auto !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+
+    align-items: start !important;
+    justify-items: center !important;
+
+    gap: 0 !important;
   }
 
-  .topology-node {
-    min-width: 0;
-    text-align: center;
+
+  .topology-row .router-node {
+    position: relative !important;
+
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+
+    transform: none !important;
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    text-align: center !important;
   }
 
-  .router-node {
-    width: 100%;
+
+  .topology-row .router-node:nth-child(1) {
+    justify-self: start !important;
+    transform: translateX(-50%) !important;
   }
 
-  .router-node strong,
+
+  .topology-row .router-node:nth-child(2) {
+    justify-self: end !important;
+    transform: translateX(50%) !important;
+  }
+
+
+  .router-node .node-circle {
+    margin: 0 auto 10px !important;
+  }
+
+
+  .router-node strong {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+
+
   .router-node span {
-    overflow-wrap: anywhere;
+    display: block !important;
+    white-space: nowrap !important;
+    font-size: 11px !important;
   }
 
-  /* ==========================
-     DEVICE TABLE
-     ========================== */
 
-  .table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  /* ---------- JUNCTION DOTS ---------- */
+
+  .junction-center {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
   }
 
-  .device-table {
-    min-width: 750px;
+
+  .junction-left {
+    left: 0 !important;
+    right: auto !important;
   }
 
-  /* Buttons */
-  .fleet-actions,
-  .row-actions {
-    flex-wrap: wrap;
-    gap: 8px;
+
+  .junction-right {
+    left: auto !important;
+    right: 0 !important;
   }
 }
