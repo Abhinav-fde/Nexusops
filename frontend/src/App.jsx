@@ -213,6 +213,13 @@ function App() {
 
   return (
     <div className="app">
+      <div className="rotate-phone-message">
+        <div className="rotate-content">
+          <div className="rotate-icon">↻</div>
+          <h2>Rotate Your Device</h2>
+          <p>NexusOps is optimized for landscape view on mobile.</p>
+        </div>
+      </div>
 
       {/* SIDEBAR */}
       <aside className="sidebar">
