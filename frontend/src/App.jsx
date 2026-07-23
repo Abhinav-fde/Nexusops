@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-const API =
-  import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+const API = "https://nexusops-api.onrender.com";
 
 function App() {
   const [devices, setDevices] = useState([]);
@@ -14,6 +13,7 @@ function App() {
   const [activeSection, setActiveSection] = useState("dashboard");
 
   const loadDashboard = async () => {
+    console.log("NexusOps API:", API);
     try {
       const [deviceRes, auditRes, activityRes] = await Promise.all([
         fetch(`${API}/devices`),
