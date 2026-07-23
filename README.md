@@ -140,41 +140,38 @@ Re-Audit
 ```
 
 ---
-
 ## Architecture
 
-```text
-┌──────────────────────────────────────────────┐
-│                   NexusOps                   │
-└──────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    A[NexusOps Dashboard<br/>React + Vite]
+    B[FastAPI Backend]
+    C[Audit Engine]
+    D[Backup Engine]
+    E[Deploy Engine]
+    F[Device Abstraction]
+    G[Simulation Mode]
+    H[SSH / Netmiko]
+    I[Network Devices]
 
-                  React + Vite
-                       │
-                       │ REST API
-                       ▼
-                FastAPI Backend
-                       │
-        ┌──────────────┼──────────────┐
-        │              │              │
-        ▼              ▼              ▼
-  Audit Engine    Backup Engine   Deploy Engine
-        │              │              │
-        └──────────────┼──────────────┘
-                       │
-                       ▼
-               Device Abstraction
-                       │
-              ┌────────┴────────┐
-              │                 │
-              ▼                 ▼
-        Simulation Mode     Future Lab Mode
-                                 │
-                                 ▼
-                          SSH / Netmiko
-                                 │
-                                 ▼
-                          Network Devices
+    A -->|REST API| B
+
+    B --> C
+    B --> D
+    B --> E
+
+    C --> F
+    D --> F
+    E --> F
+
+    F --> G
+    F --> H
+
+    H --> I
 ```
+
+The network-operations layer is deliberately decoupled from the API layer. This allows the current **Simulation Mode** to be replaced with real SSH/Netmiko device communication without redesigning the audit, backup, or deployment engines.
+
 
 The network-operations layer is deliberately decoupled from the API layer. This allows the current **Simulation Mode** to be replaced with real SSH/Netmiko device communication without redesigning the audit, backup, or deployment engines.
 
