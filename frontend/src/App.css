@@ -1349,3 +1349,98 @@ button {
   box-shadow: 0 0 0 1px #2dd4bf,
     0 0 18px rgba(45, 212, 191, 0.35);
 }
+
+/* ========================================
+   MOBILE RESPONSIVE LAYOUT
+   ======================================== */
+
+@media (max-width: 768px) {
+
+  /* Dashboard content */
+  .main-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Dashboard cards */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Panels */
+  .panel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Panel header */
+  .panel-header {
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* ==========================
+     NETWORK TOPOLOGY
+     ========================== */
+
+  .topology {
+    padding: 28px 16px;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .topology-node.core {
+    margin: 0 auto;
+  }
+
+  .topology-links {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .topology-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .topology-node {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .router-node {
+    width: 100%;
+  }
+
+  .router-node strong,
+  .router-node span {
+    overflow-wrap: anywhere;
+  }
+
+  /* ==========================
+     DEVICE TABLE
+     ========================== */
+
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .device-table {
+    min-width: 750px;
+  }
+
+  /* Buttons */
+  .fleet-actions,
+  .row-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
